@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
+import NewPetForm from "../components/NewPetForm";
+import PetsList from "../components/PetsList";
 
-const PetContainer = () => {
+const PetsContainer = () => {
     const [pets, setPets] = useState ([])
 
     // fetch data from the RESTCountries API 
@@ -17,6 +19,10 @@ const PetContainer = () => {
 
     }, [])
 
+    const selectPet = (pet) => {
+        
+    }
+
 
 
 
@@ -25,10 +31,14 @@ const PetContainer = () => {
     // pass it down to relevant components 
 
     return (
-        <>
-            <p>Hello from pet Container!</p>
-            {/* <NewPetForm  pets={pets}/> */}
-        </>
+        <div id="main-container">
+            <h1>PawsPlus🐾</h1>
+            <p><em> Adopt a furry friend</em></p>
+            <hr />
+            <NewPetForm/>
+            <hr/>
+            <PetsList pets={pets}/>
+        </div>
 
         
         
@@ -36,4 +46,4 @@ const PetContainer = () => {
 
 }
 
-export default PetContainer;
+export default PetsContainer;

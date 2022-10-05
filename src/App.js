@@ -1,10 +1,12 @@
 import './App.css';
-import PetContainer from './containers/PetContainer';
+import PetsContainer from './containers/PetsContainer';
 
 function App() {
   return (
+    <>
+      <PetsContainer/>
+    </>
 
-    <PetContainer/>
     
   );
 }
