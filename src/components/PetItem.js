@@ -1,11 +1,16 @@
-const PetItem = ({pet}) => {
+const PetItem = ({pet, meetPet}) => {
+
+    const handleMeetPet = () => {
+        meetPet(pet.id)
+    }
 
     return (
         <>
         <h4>{pet.name}</h4>
-        <p>Age: {pet.age.name}</p>
-        <p>Breed: {pet.type}</p>
-        <button>Meet</button>
+        <p>Age: {pet.age}</p>
+        <p>Type: {pet.type}</p>
+        <p>Breed: {pet.breed}</p>
+        <button onClick={handleMeetPet}>Adopt Pet!🐶</button>
         <hr />
 
         </>

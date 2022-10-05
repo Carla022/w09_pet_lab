@@ -1,3 +1,10 @@
+body {
+  background-color: rgb(251, 233, 211);
+}
+
+/* want to target h1 tag in main-container */
+/* #main-container h1 {} */
+
 .App {
   text-align: center;
 }

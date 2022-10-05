@@ -1,20 +1,18 @@
 import PetItem from "./PetItem"
 
 
-const PetsList = (pets) => {
+const PetsList = ({pets, meetPet}) => {
 
-    // const petComponents = pets.map (pet => {
-    //     return <PetItem key={pet.id} pet={pet} />
-    // });
+    const petComponents = pets.map ((pet) => {
+        return <PetItem key={pet.id} pet={pet} meetPet={meetPet}/>
+    });
 
     return (
         <>
-        <h3>Pets To View</h3>
-        
-
-        {/* {petComponents} */}
+        <h3>Pets for Adoption</h3>
+        {petComponents}
         </>
-    )
+    );
 
 }
 

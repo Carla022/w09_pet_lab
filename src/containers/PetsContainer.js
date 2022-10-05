@@ -19,25 +19,42 @@ const PetsContainer = () => {
 
     }, [])
 
-    const selectPet = (pet) => {
+
+    // POST request
+
+    const PostPet = async (newPet) => {
+        const response = await fetch("http://localhost:8080/pets", {
+            method: "POST",
+            headers: {'Content-Type': 'application/json'},
+            body:JSON.stringify(newPet)
+        });
+        const savedPet = await response.json();
+        setPets([...pets, savedPet]); 
         
     }
 
-
-
-
+    //to delete pet
+    const meetPet = (id) => {
+        //meetpet deletes pet from database
+        fetch("http://localhost:8080/pets/" + id, {
+            method: "DELETE",
+            headers: {'Content-Type': 'application/json'}
+        })
+        //delete locally
+        setPets(pets.filter(pet => pet.id !== id))
+    }
 
 
     // pass it down to relevant components 
-
+    //em inside p tag is for emphasis
     return (
         <div id="main-container">
             <h1>PawsPlus🐾</h1>
             <p><em> Adopt a furry friend</em></p>
             <hr />
-            <NewPetForm/>
+            <NewPetForm onSubmit={PostPet}/>
             <hr/>
-            <PetsList pets={pets}/>
+            <PetsList pets={pets} meetPet={meetPet}/>
         </div>
 
         
